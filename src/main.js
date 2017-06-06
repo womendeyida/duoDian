@@ -13,13 +13,41 @@ import '../css/reset.css'
 
 
 import axios from 'axios'
-Vue.prototype.axios = 'axios'
+Vue.prototype.axios = axios
 Vue.config.productionTip = false
 
+//创建仓库为了存放state mutations,actions
+const store =new Vuex.Store({
+	state:{//共享的数据
+		obj:{}
+	},
+	mutations:{//修改数据的唯一途径
+		ADD_MONEY(state,item){
+			console.log("123");
+			state.obj = item;			
+		}
+		
+	},
+	actions:{//异步操作的事件
+		//这个context就是$store
+		addMoney(context,price){
+			console.log(context);
+			//异步更改state
+			setTimeout(function(){
+				context.commit("ADD_MONEY",price)
+			},1000);
+		}
+	},
+	getters:{//vuex中的计算属性
+		getobj(state){
+			return state.obj;
+		}
+	}
+})
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
   template: '<App/>',
   components: { App, HomeXian },
-  router
+  router,store
 })

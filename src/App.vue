@@ -17,6 +17,7 @@
 
 <script>
 // import Cart from './cart/cart'
+  // import GoodDetail from './components/goodDetil'
 
 export default {
   name: 'app',

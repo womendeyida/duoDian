@@ -18,6 +18,7 @@ import Fenleib from '../fenlei/fenleib'
 import Mine from '../mine/mine'
 import AllList from '../mine/allList'
 import Vip from '../vip/vip'
+import GoodDetil from '../components/goodDetil'
 //定义路由规则
 const routes = [
 	{path:'', component:Home},
@@ -37,7 +38,8 @@ const routes = [
 	{path:'/mine', component:Mine},
 	{path:'/fenlei', component:Fenlei},
 	{path:'/allList', component:AllList},
-	{path:'/cart', component:Cart}
+	{path:'/cart', component:Cart},
+	{path:'/goodDetil/:id', name: "goodDetil",component:GoodDetil}
 ]
 
 // //创建路由对1象

@@ -1,7 +1,7 @@
 <template>
 
 	<div id="swiper">
-		<img v-for="item in data" :src="{{ item }}">
+		<img v-for="item in data" :src="">
 	</div>
 
 </template>

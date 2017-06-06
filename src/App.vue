@@ -3,8 +3,7 @@
     <!-- <cart></cart> -->
     <div id="tabber">
       <router-link to="/home">首页</router-link>
-      <router-link to="/fenlei">分类</router-link>
-      
+      <router-link to="/fenlei">分类</router-link> 
       <router-link to="/vip">会员</router-link>
       <router-link to="/cart">购物车</router-link>
       <router-link to="/mine">我的</router-link>

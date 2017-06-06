@@ -1,7 +1,7 @@
 <template>
 
 	<div id="fenleib">
-		<h1>fenleib</h1>
+		
 	</div>
 
 </template>
@@ -9,7 +9,14 @@
 <script>
 
 	export default{
-		name:"fenleib",
+		data(){
+			return{
+				list:[]
+			}
+		},
+		created(){
+			this.axios.get('../../static/duoDian.json').then(res=>{})
+		}
 
 		
 	}
@@ -17,8 +24,8 @@
 </script>
 
 <style>
-	#fenleib h1{
-		color:blue;
+	#fenleib {
+		
 	}
 
 </style>

@@ -1,32 +1,61 @@
 <template>
 
 	<div id="cart">
-		<h1>妈卖批</h1>
+		<div class="header">
+			<p>购物车</p>
+		</div>
+		<div class="tiao"></div>
+		<div class="address">
+			<p>多点君需要你的详细地址呦~</p>
+			<p>送至(物美大卖场西三旗店)</p>
+			<span>></span>
+		</div>
+		<div class="car">
+			<!-- <img :src=""> -->
+		</div>
 	</div>
 </template>
 
 <script>
 
 	export default{
-		name:"cart"
+		name:"cart",
+		data(){
+			return{
+				
+			}
+		}
 
-		 // <div class="tabbar">
-   //        <router-link to="/home">Home</router-link>
-   //        <router-link to="/fenlei">Fen</router-link>
-   //        <router-link to="/cart">Cart</router-link>
-   //        <router-link to="/vip">Vip</router-link>
-   //        <router-link to="/mine">Mine</router-link>
-   //    </div>
-
-   //    <router-view></router-view>
-		
 	}
 
 </script>
 
 <style>
-	#cart h1{
-		color:hotpink;
+	#cart .header{
+		width: 100%;
+		height: 1.1rem;
+		text-align: center;
+		line-height: 1.1rem;
+	}
+	#cart .tiao{
+		width: 100%;
+		height: 0.3rem;
+		background-image: linear-gradient(to bottom,#e8e8e8,#f5f5f5 );
+		border-bottom: 0.1rem dashed #7da6d2;
+	}
+	#cart .address{
+		width: 100%;
+		height: 1.7rem;
+		border-bottom: 2px solid #f9ebeb;
+	}
+	#cart .address p{
+		font-size: 0.35rem;
+		padding: 0.1rem 0 0 0.1rem;
+	}
+	#cart .address span{
+		position: absolute;
+		left: 8.5rem;
+		top: 2rem;
 	}
 
 </style>

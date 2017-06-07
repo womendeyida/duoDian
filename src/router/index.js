@@ -21,7 +21,8 @@ import Vip from '../vip/vip'
 import GoodDetil from '../components/goodDetil'
 //定义路由规则
 const routes = [
-	{path:'', component:Home},
+	{path:'', component:Home,children:[
+		{path:'',component:Homea}]},
 	{path:'/home', component:Home,children:[
 		{path:'',component:Homea},
 		{path:'homea',component:Homea},

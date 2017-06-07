@@ -31,6 +31,7 @@ export default {
       width: 100%;
       height: 1.25rem;
       display: flex;
+      z-index:50;
       justify-content: space-around;
       align-items: center;
       font-size: 16px;

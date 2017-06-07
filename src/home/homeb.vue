@@ -89,14 +89,14 @@
 		methods:{
 
 			rotate(item) {
-				console.log(item);
+				// console.log(item);
 				this.$store.commit('ADD_MONEY',item);
 			    // 在方法中进行路由跳转，并传递参数
 			    // this.$router.push('/listdetail/' + item.name)
 			    
 			    // 带查询参数，变成 /listdetail/abc?plan=private
 			    this.$router.push({
-			        name: 'goodDetil'	,
+			        name: 'goodDetil',
 			        params:{
 			        	
 			        }	  

@@ -26,8 +26,9 @@
 			}
 		},
 		created(){
-			// this.axios.get('/api/'+this.$route.params.id).then()
+			this.axios.get('https://waredetailgateway.dmall.com/detail/main',this.$route.params.id).then()
 			console.log(this.$route.params.id)
+
 		}
 	}
 

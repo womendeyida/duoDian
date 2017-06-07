@@ -40,7 +40,7 @@ const routes = [
 	{path:'/fenlei', component:Fenlei},
 	{path:'/allList', component:AllList},
 	{path:'/cart', component:Cart},
-	{path:'/goodDetil/:id', name: "goodDetil",component:GoodDetil}
+	{path:'/goodDetil', name: "goodDetil",component:GoodDetil}
 ]
 
 // //创建路由对1象

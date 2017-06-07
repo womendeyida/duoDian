@@ -10,7 +10,7 @@
 		<!-- ~~~~~~~~~~~~~~~~~~~~~好货提前抢~~~~~~~~~~~~~~~~~~~~~ -->
 		<ul class="homeaBlock">
 			<li v-for="item in aa " class="homeaBlockLi">
-				<router-link to="/home_xian">
+				<router-link to="/good">
 					<img v-bind:src="item.imageUrl" alt="" class="homeaBlockLiImg">
 					<p>{{item.data.title}}</p>
 				</router-link>
@@ -23,7 +23,10 @@
 		</div>
 		<!-- ~~~~~~~~~~~~~~~~~~~生鲜集结号~~~~~~~~~~~~~~~~~~~~~~·~~~ -->
 		<div v-for="p, i in datas" :class="{'first': i == 0}" class="shengxian">
-			<img v-bind:src="p.imageUrl">
+			<router-link to="/home_xian">
+				<img v-bind:src="p.imageUrl">
+			</router-link>
+			<router-view></router-view>	
 		</div>
 		<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~超市优选~~~~~~~~~~~~~~~~~~~~ -->
 		<div v-for="p in datai" class="chaoshi">
@@ -54,7 +57,7 @@
 				</li>
 			</ul>
 		</div>
-
+		<div class="kong"></div>
 	</div>
 
 </template>
@@ -74,9 +77,6 @@
 				datal:[],   //粮油副食
 				datajk:[],  //健康蔬菜
 				dataguan:[] //瓜果
-				 
-
-
 			}
 		},
 		methods:{
@@ -97,9 +97,9 @@
 		},
 		created(){  //组件创建完成即可发起网络请求
 			this.axios.get("./static/duoDian.json").then(res => {
-				console.log(res.data.data.pageModules)
+				// console.log(res.data.data.pageModules)
 				// console.log(res.data.data.pageModules[2].dataList)
-				console.log(res.data.data.pageModules[9].dataList)
+				// console.log(res.data.data.pageModules[9].dataList)
 				this.data = res.data.data.pageModules
 				this.datah = res.data.data.pageModules[2].dataList
 				this.dataj = res.data.data.pageModules[3].dataList
@@ -150,6 +150,8 @@
 		height: 3.75rem; 
 		background: yellow;
 	}
+
+	/*---------------好货提前抢-------------*/
 	.homeaBlock{
 		width:100%;
 	    height: 1.85rem;
@@ -177,6 +179,7 @@
 	.homeaBlockLi a{
 		color: #888888;
 	}
+	/*-------------------精选推荐--------------*/
 	.jingxuan{
 		width: 100%;
 		height: 2.2125rem;
@@ -186,7 +189,7 @@
 		width: 100%;
 		height: 2.2125rem;
 	}
-
+	/*------------------生鲜集结号---------------*/
 	.shengxian img {
 		width: 4.675rem;
 		height: 2.75rem;
@@ -196,10 +199,14 @@
 		width: 4.675rem;
 		height: 5.5rem;
 	}
+
+	/*------------------超市优选-------------------*/
 	.chaoshi img{
 		width: 100%;
 		height: 1.5rem;
 	}
+
+	/*-------------------鲜菜------------------*/
 	.xiancai{
 		width: 100%;
 
@@ -209,11 +216,13 @@
 		height: 3.75rem;
 		float: left;
 	}
+	/*----------------------健康蔬菜--------------*/
 	.shucai img{
 		margin-top: 10px;
 		width: 100%;
 		height:2.875rem;
 	}
+	/*----------------健康蔬菜下的瓜果-------------*/
 	.jiankangUl{
 		width: 100%;
 		display: flex;
@@ -255,7 +264,7 @@
 		width: 0.75rem;
 		height: 0.5rem;
 		line-height: 0.5rem;
-		text-align: center;
+		/*text-align: center;*/
 		color:#FF712B;
 		border:1px solid #FF712B;
 		position: absolute;
@@ -263,5 +272,9 @@
 		right: 0.5rem;
 	}
 	
+	.kong{
+		width: 100%;
+		height: 1.25rem;
+	}
 
 </style>

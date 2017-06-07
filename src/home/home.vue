@@ -5,10 +5,19 @@
 			<span>送至:西单(地铁站) ></span>
 			<i></i>
 		</div>
-		
-		<router-link to="/home/homea">多点超市</router-link>
-		<router-link to="/home/homeb">全球精选</router-link>
-		<router-view></router-view>
+		<div class="homeDiv">
+			<div>
+				<router-link to="/home/homea">多点超市
+					<img src="../assets/h1.png" alt="" class="homeImg1">
+				</router-link>
+			</div>
+			<div>
+				<router-link to="/home/homeb">全球精选
+					<img src="../assets/h2.png" alt="" class="homeImg2">
+				</router-link>
+			</div>
+		</div>
+			<router-view></router-view>
 	</div>
 
 </template>
@@ -47,5 +56,36 @@
 		display: inline-block;
 		/*background-color: red;*/
 	}
+	.homeDiv{
+		width: 100%;
+		height: 1.0rem;
+		line-height:  1.0rem;
+		background-color: #fff;
+		padding-left: 0.25rem;
+		position: relative;
+		display: flex;
 
+	}
+	.homeDiv a{
+		color: #585858;
+		
+	}
+	.homeDiv div:first-of-type{
+		margin-right: 30px
+	}
+	.homeImg1, .homeImg2{
+		width: 1.225rem;
+		height: 0.3rem;
+	}
+	.homeImg1{
+		position: absolute;
+		top:0;
+		left:0.7rem;
+	}
+	.homeImg2{
+		position: absolute;
+		top:0;
+		left: 3rem;
+	}
+	
 </style>

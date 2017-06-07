@@ -41,11 +41,12 @@
 		/*height: 1.1rem;*/
 		justify-content:space-between;
 		background-color: #fff;
-		padding-left:10px;
-		padding-right: 10px;
+		/*padding-left:10px;
+		padding-right: 10px;*/
 	}
 	.header span{
-		color: #404040;;
+		color: #404040;
+		margin-left: 10px;
 	}
 	#home .header i{
 		background:url(../assets/sprt.png) right no-repeat;
@@ -61,17 +62,18 @@
 		height: 1.0rem;
 		line-height:  1.0rem;
 		background-color: #fff;
-		padding-left: 0.25rem;
+		/*padding-left: 0.25rem;*/
 		position: relative;
 		display: flex;
 
 	}
 	.homeDiv a{
 		color: #585858;
+		margin-left: 0.25rem;
 		
 	}
 	.homeDiv div:first-of-type{
-		margin-right: 30px
+		margin-right: 0.75rem;
 	}
 	.homeImg1, .homeImg2{
 		width: 1.225rem;
@@ -85,7 +87,7 @@
 	.homeImg2{
 		position: absolute;
 		top:0;
-		left: 3rem;
+		left: 3.3rem;
 	}
 	
 </style>

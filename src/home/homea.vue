@@ -6,7 +6,16 @@
 		<router-view></router-view> -->
 		<!-- <h1>好么</h1> -->
 		<!-- ~~~~~~~~~~~~~~~~~~~~~轮播图~~~~~~~~~~~~~~~~~~~~~ -->
-		<div class="homeaLunbo">轮播图</div>
+		<div class="homeaLunbo">
+			<swiper :options="swiperOption" >
+				<!-- 遍历轮播图片 -->
+			    <swiper-slide v-for="item in data">
+			        <img :src="item.imageUrl">
+			    </swiper-slide>
+			    <!-- 分页器 -->
+			    <div class="swiper-pagination" slot="pagination"></div>
+			</swiper>
+		</div>
 		<!-- ~~~~~~~~~~~~~~~~~~~~~好货提前抢~~~~~~~~~~~~~~~~~~~~~ -->
 		<ul class="homeaBlock">
 			<li v-for="item in aa " class="homeaBlockLi">
@@ -63,9 +72,12 @@
 </template>
 
 <script>
-
+	// 引入轮播图组件
+	// import { swiper, swiperSlide } from 'vue-awesome-swiper'
 	export default{
 		name:"homea",
+		// 注册轮播图组件
+		// components:{ swiper, swiperSlide },
 		data(){
 			return{
 				data:[], 
@@ -76,13 +88,20 @@
 				datax:[],   //鲜菜鲜果
 				datal:[],   //粮油副食
 				datajk:[],  //健康蔬菜
-				dataguan:[] //瓜果
+				dataguan:[], //瓜果
+
+				swiperOption: {
+		            autoplay: 1000,  //1秒
+		            direction : 'horizontal', //横向
+		            pagination : '.swiper-pagination',
+		        }
 			}
 		},
 		methods:{
 			store(item){
 				this.$store.commit('ADD_MONEY',item);
 
+				
 				this.$router.push({
 					//路由的名字
 					name:'goodDetil',
@@ -97,10 +116,10 @@
 		},
 		created(){  //组件创建完成即可发起网络请求
 			this.axios.get("./static/duoDian.json").then(res => {
-				// console.log(res.data.data.pageModules)
+				// console.log(res.data.data.pageModules[0].dataList)
 				// console.log(res.data.data.pageModules[2].dataList)
 				// console.log(res.data.data.pageModules[9].dataList)
-				this.data = res.data.data.pageModules
+				this.data = res.data.data.pageModules[0].dataList
 				this.datah = res.data.data.pageModules[2].dataList
 				this.dataj = res.data.data.pageModules[3].dataList
 				this.datas = res.data.data.pageModules[4].dataList
@@ -119,7 +138,8 @@
 			aa() {  //添加方法
 				this.datah.splice(5, 1);
 				return this.datah;
-			}
+			},
+
 		},
 		// filters:{  //过滤器
 		// 	aa( datah, b ){
@@ -148,7 +168,11 @@
 	.homeaLunbo{
 		width: 100%;
 		height: 3.75rem; 
-		background: yellow;
+		/*background: yellow;*/
+	}
+	.homeaLunbo img{
+		width: 100%;
+		height: 3.75rem; 
 	}
 
 	/*---------------好货提前抢-------------*/

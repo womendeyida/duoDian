@@ -16,7 +16,7 @@ import axios from 'axios'
 Vue.prototype.axios = axios
 Vue.config.productionTip = false
 
-//创建仓库为了存放state mutations,actions
+//创建仓库(store)为了存放state mutations,actions
 const store =new Vuex.Store({
 	state:{//共享的数据
 		obj:{},

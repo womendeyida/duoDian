@@ -1,9 +1,11 @@
 import Vue from 'vue'
 // 引入vueRouter并安装
 import VueRouter from 'vue-router'
+import VueAwesomeSwiper from 'vue-awesome-swiper'
 //可以让Vuerouter在任何组件中使用
 //其中的工具提供为全局
 Vue.use(VueRouter)
+Vue.use(VueAwesomeSwiper)
 
 //引入组件
 import Home from '../home/home'

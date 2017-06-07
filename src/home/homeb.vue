@@ -2,7 +2,14 @@
 
 	<div id="homeb">
 		<div class ="ban">
-			<h1>轮播图</h1>
+			<swiper :options="swiperOption" >
+				<!-- 遍历轮播图片 -->
+			    <swiper-slide v-for="item in data">
+			        <img :src="item.imageUrl">
+			    </swiper-slide>
+			    <!-- 分页器 -->
+			    <div class="swiper-pagination" slot="pagination"></div>
+			</swiper>
 		</div>
 		<div class="menuList">
 			<figure v-for="item in dataa">
@@ -74,6 +81,7 @@
 		data(){
 			return{
 				url:"",
+				data:[],
 				dataa:[],
 				datab:[],
 				datac:{},
@@ -82,7 +90,12 @@
 				dataf:[],
 				datag:[],
 				datah:{},
-				datai:[]
+				datai:[],
+				swiperOption: {
+		            autoplay: 1000,  //1秒
+		            direction : 'horizontal', //横向
+		            pagination : '.swiper-pagination',
+		        }
 
 			}
 		},
@@ -107,6 +120,7 @@
 		created(){
 			this.axios.get('../../static/quanQiu.json').then((res) => {
 				console.log(res.data.data.pageModules);
+				this.data = res.data.data.pageModules[0].dataList;
 				this.dataa = res.data.data.pageModules[1].dataList;
 				this.datab = res.data.data.pageModules[2].dataList;
 				this.datac = res.data.data.pageModules[3].dataList[0];
@@ -132,8 +146,12 @@
 	#homeb .ban{
 		height: 3.75rem;
 		width: 100%;
-		background: yellow;
+		/*background: yellow;*/
 		
+	}
+	#homeb .ban img{
+		height: 3.75rem;
+		width: 100%;
 	}
 	#homeb .menuList{
 		display: flex;

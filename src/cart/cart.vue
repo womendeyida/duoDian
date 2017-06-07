@@ -11,7 +11,11 @@
 			<span>></span>
 		</div>
 		<div class="car">
-			<!-- <img :src=""> -->
+			<div class="goodList" v-for="item in allGoods">
+				<img :src="item.imageUrl">
+				<p>{{ item.data.name }}</p>
+				<p>{{ item.count }}</p>
+			</div>
 		</div>
 	</div>
 </template>
@@ -24,7 +28,12 @@
 			return{
 				
 			}
-		}
+		},
+		computed:{
+			allGoods(){			
+				return this.$store.getters.getobjGoods;
+			}
+		},
 
 	}
 
@@ -57,5 +66,8 @@
 		left: 8.5rem;
 		top: 2rem;
 	}
-
+	#cart .goodList img{
+		width: 5.0rem;
+		height: 5.0rem;
+	}
 </style>

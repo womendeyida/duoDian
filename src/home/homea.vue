@@ -49,11 +49,11 @@
 		<div class="jiankang">
 			<ul class="jiankangUl">
 				<li v-for="p in dataguan" class="jiankangli">
-					<img v-bind:src="p.imageUrl" alt="">
+					<img v-bind:src="p.imageUrl" alt="" @click='store(p)'>
 					<p class="jiankangInfo">{{ p.data.name}}</p>
 					<del class="jiankangDel">{{ p.data.price}}</del>
 					<p class="jiankangNew">{{ p.data.promotionPrice}}</p>
-					<p class="jia">+</p>
+					<p class="jia" @click='addGoods(p)'>+</p>
 				</li>
 			</ul>
 		</div>
@@ -77,6 +77,22 @@
 				datal:[],   //粮油副食
 				datajk:[],  //健康蔬菜
 				dataguan:[] //瓜果
+			}
+		},
+		methods:{
+			store(item){
+				this.$store.commit('ADD_MONEY',item);
+
+				this.$router.push({
+					//路由的名字
+					name:'goodDetil',
+					path:{
+						
+					}
+				})
+			},
+			addGoods(item){
+				this.$store.commit('ADD_GOODS',item);
 			}
 		},
 		created(){  //组件创建完成即可发起网络请求

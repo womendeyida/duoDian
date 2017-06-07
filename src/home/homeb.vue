@@ -11,7 +11,7 @@
 			    <div class="swiper-pagination" slot="pagination"></div>
 			</swiper>
 		</div>
-		<div class="menuList">
+		<div class="menuList" >
 			<figure v-for="item in dataa">
 				<img :src="item.imageUrl">
 				<figcaption>
@@ -59,15 +59,15 @@
 					<p>{{ item.data.name }}</p>
 					<del>￥{{ item.data.price}}</del>
 					<p class="newprice">￥{{ item.data.promotionPrice }}</p>
-					<div class="jia">+</div>
+					<div class="jia" @click='addGoods(item)'>+</div>
 				</figcaption>
 			</figure>
 		</div>
 
-
+		
 
 		<div class="bai">
-			1
+			<!-- {{ quanqiu }} -->
 		</div>
 
 	</div>
@@ -99,6 +99,7 @@
 
 			}
 		},
+		
 		methods:{
 
 			rotate(item) {
@@ -112,9 +113,13 @@
 			        name: 'goodDetil',
 			        params:{
 			        	
-			        }	  
+			        }
+			        	  
 			    })
 
+			},
+			addGoods(item){
+				this.$store.commit('ADD_GOODS',item);
 			}
 		},
 		created(){
@@ -132,9 +137,14 @@
 				this.datah = res.data.data.pageModules[9].dataList[0];
 				this.datai = res.data.data.pageModules[10].dataList;			
 			})
+		// 	this.$store.dispath("requestData");
 		},
 
-		
+		// computed: {
+		// 	quanqiu(){
+		// 		return this.$store.state.data
+		// 	}
+		// }
 	}
 
 </script>

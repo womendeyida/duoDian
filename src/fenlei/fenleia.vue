@@ -3,10 +3,10 @@
 	<div id="fenleia">
 		<ul>
 			<li v-for="item in list">
-				<img :src="item.data.skus.img">
-				<p>{{ item.data.name }}</p>
+				<img :src="item.img">
+				<p>{{ item.title }}</p>
 				<div id="juzhong">
-				<span id="myspan1">{{item.data.price}}</span>
+				<span id="myspan1">{{item.price}}</span>
 				<span id="myspan">+</span>
 				</div>
 			</li>
@@ -26,8 +26,8 @@
 			}
 		},
 		created(){
-			this.axios.get('../../static/duoDian.json').then(res =>{
-						this.list = res.data.data.pageModules[11].dataList
+			this.axios.get('../../static/fenleia.json').then(res =>{
+						this.list = res.data.data.list
 					}
 				)
 		}

@@ -9,8 +9,7 @@
       <router-link to="/mine">我的</router-link>
        
     </div>
-      <router-view></router-view> 
-    
+      <router-view></router-view>    
   </div>
 </template>
 

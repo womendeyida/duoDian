@@ -4,7 +4,7 @@
 		<div class ="ban">
 			<h1>轮播图</h1>
 		</div>
-		<div class="menuList">
+		<div class="menuList" >
 			<figure v-for="item in dataa">
 				<img :src="item.imageUrl">
 				<figcaption>
@@ -52,15 +52,15 @@
 					<p>{{ item.data.name }}</p>
 					<del>￥{{ item.data.price}}</del>
 					<p class="newprice">￥{{ item.data.promotionPrice }}</p>
-					<div class="jia">+</div>
+					<div class="jia" @click='addGoods(item)'>+</div>
 				</figcaption>
 			</figure>
 		</div>
 
-
+		
 
 		<div class="bai">
-			1
+			<!-- {{ quanqiu }} -->
 		</div>
 
 	</div>
@@ -86,22 +86,27 @@
 
 			}
 		},
+		
 		methods:{
 
 			rotate(item) {
-				console.log(item);
+				// console.log(item);
 				this.$store.commit('ADD_MONEY',item);
 			    // 在方法中进行路由跳转，并传递参数
 			    // this.$router.push('/listdetail/' + item.name)
 			    
 			    // 带查询参数，变成 /listdetail/abc?plan=private
 			    this.$router.push({
-			        name: 'goodDetil'	,
+			        name: 'goodDetil',
 			        params:{
 			        	
-			        }	  
+			        }
+			        	  
 			    })
 
+			},
+			addGoods(item){
+				this.$store.commit('ADD_GOODS',item);
 			}
 		},
 		created(){
@@ -118,9 +123,14 @@
 				this.datah = res.data.data.pageModules[9].dataList[0];
 				this.datai = res.data.data.pageModules[10].dataList;			
 			})
+		// 	this.$store.dispath("requestData");
 		},
 
-		
+		// computed: {
+		// 	quanqiu(){
+		// 		return this.$store.state.data
+		// 	}
+		// }
 	}
 
 </script>

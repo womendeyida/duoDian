@@ -3,7 +3,7 @@
 	<div id="goodDetil">
 		<h1>goodDetil</h1>
 		<div>
-			<h1>{{ id }}</h1>
+			<!-- <h1>{{ id }}</h1> -->
 			<img :src="goodDetil.imageUrl" >
 			<p>{{ goodDetil.data.name }}</p>
 		</div>
@@ -26,8 +26,9 @@
 			}
 		},
 		created(){
-			// this.axios.get('/api/'+this.$route.params.id).then()
-			console.log(this.$route.params.id)
+			// this.axios.get('https://waredetailgateway.dmall.com/detail/main?id=' + this.id).then()
+			// console.log(this.$route.params.id)
+
 		}
 	}
 

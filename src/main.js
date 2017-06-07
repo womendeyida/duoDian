@@ -22,7 +22,7 @@ const store =new Vuex.Store({
 		obj:{},
 		objGoods:[],
 		// flag:false,
-		
+		data: {}
 	},
 	mutations:{//修改数据的唯一途径
 		ADD_MONEY(state,item){
@@ -68,6 +68,23 @@ const store =new Vuex.Store({
 
 				context.commit("ADD_MONEY",price)
 			},1000);
+		},
+
+		requestData(state){
+			axios.get('../../static/quanQiu.json').then((res) => {
+				console.log(res.data.data.pageModules);
+				/*this.dataa = res.data.data.pageModules[1].dataList;
+				this.datab = res.data.data.pageModules[2].dataList;
+				this.datac = res.data.data.pageModules[3].dataList[0];
+				this.datad = res.data.data.pageModules[5].dataList;
+				console.log(res.data.data.pageModules[5].dataList)
+				this.datae = res.data.data.pageModules[6].dataList[0];
+				this.dataf = res.data.data.pageModules[7].dataList;
+				this.datag = res.data.data.pageModules[8].dataList;
+				this.datah = res.data.data.pageModules[9].dataList[0];
+				this.datai = res.data.data.pageModules[10].dataList;*/	
+				state.data = res;
+			})
 		}
 	},
 	getters:{//vuex中的计算属性
@@ -87,3 +104,5 @@ new Vue({
   components: { App, HomeXian },
   router,store
 })
+
+

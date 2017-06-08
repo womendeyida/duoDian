@@ -12,14 +12,16 @@
 		</div>
 		<div class="car">
 			<div class="goodList" v-for="item in allGoods">
+
 				<img :src="item.imageUrl">
-				<p>{{ item.data.name }}</p>
-				<span></span>
+				<p>{{ item.title }}</p>
 				<p>{{ item.count }}</p>
+				<span>-</span>
+				<span>+</span>
 			</div>
 		</div>
 		<div class="bai">
-			1
+
 		</div>
 	</div>
 </template>

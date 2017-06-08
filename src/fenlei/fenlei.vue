@@ -1,4 +1,4 @@
-<template>
+<template> 
 
 	<div id="fenlei">
 		<div class="header">
@@ -21,14 +21,14 @@
 			<div class="xiabian">
 				<div class="left">
 					<ul>
-						<li v-for="(item,i) in list" @click="dianji(i)"> 
+						<li v-for="(item,i) in list" @click="dianji(i)" :class="{active:currentIndex == i}"> 
 							<span>{{item.catName}}</span>
 						</li>
 					</ul>
 				</div>
 				<div class="middle">
 					<ul>
-						<li v-for="(item, i) in aa" @click="erDian(item)">
+						<li v-for="(item, i) in aa" @click="erDian(item,i)" :class="{active1:currentIndex1 == i}">
 						{{ item.catName }}
 
 						</li>
@@ -36,7 +36,7 @@
 				</div>
 				<div class="right">
 					<ul>
-						<li v-for="(item, i) in bb">{{ item.catName }}</li>
+						<li v-for="(item, i) in bb" :class="{active2:currentIndex2 == i}" @click="sandian(i)">{{ item.catName }} </li>
 					</ul>
 				</div>
 			</div>
@@ -56,7 +56,10 @@
 			return{
 				list:[],
 				aa:[],
-				bb:[]
+				bb:[],
+				currentIndex:0,
+				currentIndex1:0,
+				currentIndex2:0
 				
 			}
 		},
@@ -86,13 +89,16 @@
 				this.$refs.zhezhao1.style.display='none';
 			},
 			dianji(i){
-				
 				this.aa=this.list[i].childCmCategories;
-
+				this.currentIndex = i;
 			},
-			erDian(item){
+			erDian(item,i){
 				this.bb = item.childCmCategories;
-				}
+				this.currentIndex1 = i;
+				},
+			sandian(i){
+				this.currentIndex2 = i;
+			}
 		},
 
 		// },
@@ -179,5 +185,30 @@
 		height: 1.1rem;
 		text-align: center;
 		line-height: 1.1rem;
+	}
+	#fenlei .middle li{
+		width: 3.125rem;
+		height: 1.1rem;
+		line-height: 1.1rem;
+		text-align: center;
+	}
+	#fenlei .right li{
+		width: 3.125rem;
+		height: 1.1rem;
+		line-height: 1.1rem;
+		text-align: center;
+	}
+	#fenlei .active{
+		border-left: 2px solid #ff712b;
+		color: #ff712b;
+		background: #f6f6f6;
+	}
+	#fenlei .active1{
+		background: #f0f0f0;
+		color: #ff712b;
+	}
+	#fenlei .active2{
+		background: #ebebeb;
+		color: #ff712b;
 	}
 </style>

@@ -14,7 +14,7 @@
 				</li>
 			</ul>
 			<p class="youhui">
-				<span>立享优惠</span>
+			<span>立享优惠</span>
 			</p>
 			<div class="money">
 			<ol>
@@ -68,6 +68,9 @@
 		<div class="tu2"></div>
 		<div class="tu3"></div>	
 		<div class="kong"></div>
+		<div class="qiandao">
+			<img src="../assets/vipimg/5.png" @click="hui()">
+		</div>
 	</div>
 
 </template>
@@ -76,7 +79,19 @@
 
 	export default{
 		name:"vip",
+		data(){
+			return{
 
+			}
+			
+		},
+		methods:{
+			hui(){
+				this.$router.push({
+					name:'huiyuan'
+				})
+			}
+		}
 		
 	}
 
@@ -245,5 +260,13 @@
 	#vip .kong{
 		width: 100%;
 		height: 1rem;
+	}
+	#vip .qiandao img{
+		width: 1.625rem;
+		height: 1.3325rem;
+		position: fixed;
+		top: 12rem;
+		left: 6.5rem;
+
 	}
 </style>

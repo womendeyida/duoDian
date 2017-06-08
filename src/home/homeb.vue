@@ -1,4 +1,4 @@
-<template>
+<template> 
 
 	<div id="homeb">
 		<div class ="ban">
@@ -10,7 +10,7 @@
 			    <!-- 分页器 -->
 			    <div class="swiper-pagination" slot="pagination"></div>
 			</swiper>
-		</div>
+		</div> 
 		<div class="menuList" >
 			<figure v-for="item in dataa">
 				<img :src="item.imageUrl">
@@ -44,7 +44,7 @@
 				<img :src="item.imageUrl" >
 			</div>
 			<div v-for="item in datag" >
-				<img :src="item.imageUrl">
+				<img :src="item.imageUrl"> 
 			</div>
 		</div>
 		<div class="chaoZhi">

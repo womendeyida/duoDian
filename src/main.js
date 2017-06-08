@@ -11,7 +11,7 @@ Vue.use(Vuex)
 //引入重置样式表
 import '../css/reset.css'
 
-
+ 
 import axios from 'axios'
 Vue.prototype.axios = axios
 Vue.config.productionTip = false
@@ -37,7 +37,7 @@ const store =new Vuex.Store({
 			var flag = false;
 			state.objGoods.map(function(newitem){
 
-				if(newitem.data.name == item.data.name){
+				if(newitem.data.name == item.data.name ){
 					flag = true;
 					newitem.count++;
 					
@@ -50,11 +50,31 @@ const store =new Vuex.Store({
 					state.objGoods.push(item);
 					
 				}	
-					
+					 
 					
 			// };
 			console.log(state.objGoods);
 			console.log(state.count)
+			 
+		},
+		ADD_GOOD(state,item){
+			// //~~~~~~方法
+			var flag = false;
+			state.objGoods.map(function(newitem){
+
+				if(newitem.title == item.title ){
+					flag = true;
+					newitem.count++;
+					
+					console.log(state.count);
+				}
+			});
+			// if(state.flag == false){//如果不存在	
+				if(flag == false) {
+					item.count = 1;
+					state.objGoods.push(item);
+					
+				}	
 			 
 		}
 		
@@ -69,7 +89,7 @@ const store =new Vuex.Store({
 				context.commit("ADD_MONEY",price)
 			},1000);
 		},
-
+  
 		requestData(state){
 			axios.get('../../static/quanQiu.json').then((res) => {
 				console.log(res.data.data.pageModules);
@@ -86,7 +106,7 @@ const store =new Vuex.Store({
 				state.data = res;
 			})
 		}
-	},
+	}, 
 	getters:{//vuex中的计算属性
 		getobj(state){
 			return state.obj;

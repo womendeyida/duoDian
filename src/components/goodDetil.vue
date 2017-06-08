@@ -17,7 +17,7 @@
 		name:"allList",	
 		data() {
 	        return { // 在数据中接收
-	            id: this.$route.params.id
+	            // id: this.$route.params.id
 	        }
 	    },
 		computed:{

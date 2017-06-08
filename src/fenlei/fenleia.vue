@@ -1,13 +1,13 @@
 <template>
-
+ 
 	<div id="fenleia">
 		<ul>
 			<li v-for="item in list">
-				<img :src="item.img">
+				<img :src="item.img" @click="tiao(item)">
 				<p>{{ item.title }}</p>
 				<div id="juzhong">
 				<span id="myspan1">{{item.price}}</span>
-				<span id="myspan">+</span>
+				<span id="myspan" @click="addGoods(item)">+</span>
 				</div>
 			</li>
 		</ul>
@@ -30,7 +30,19 @@
 						this.list = res.data.data.list
 					}
 				)
+		},
+		methods:{
+			addGoods(item){
+			this.$store.commit('ADD_GOOD',item);
+		},
+			tiao(item){
+			this.$store.commit('ADD_MONEY',item);
+			this.$router.push({
+					name:'goodDetail1'
+			})
+			}
 		}
+
 	} 
 
 </script>

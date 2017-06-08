@@ -21,6 +21,8 @@ import Mine from '../mine/mine'
 import AllList from '../mine/allList'
 import Vip from '../vip/vip'
 import GoodDetil from '../components/goodDetil'
+import Huiyuan from '../components/huiyuan'
+import GoodDetill from '../components/goodDetail1'
 //定义路由规则
 const routes = [
 	{path:'', component:Home,children:[
@@ -41,8 +43,10 @@ const routes = [
 	{path:'/mine', component:Mine},
 	{path:'/fenlei', component:Fenlei},
 	{path:'/allList', component:AllList},
-	{path:'/cart', component:Cart},
-	{path:'/goodDetil', name: "goodDetil",component:GoodDetil}
+	{path:'/cart',name:"cart",component:Cart},
+	{path:'/goodDetil', name: "goodDetil",component:GoodDetil},
+	{path:'/huiyuan',name:"huiyuan",component:Huiyuan},
+	{path:'/goodDetail1',name:"goodDetail1",component:GoodDetill}
 ]
 
 // //创建路由对1象

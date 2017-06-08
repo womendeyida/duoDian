@@ -23,7 +23,9 @@ const store =new Vuex.Store({
 		obj1:{},
 		objGoods:[],
 		// flag:false,
-		data: {}
+		data: {},
+		money:0,
+		num: []
 	},
 	mutations:{//修改数据的唯一途径
 		// 主页里面的详情页面
@@ -47,15 +49,15 @@ const store =new Vuex.Store({
 				if(newitem.data.name == item.data.name){
 					flag = true;
 					newitem.count++;
-					
 					console.log(state.count);
+					
 				}
 			});
 			// if(state.flag == false){//如果不存在	
 				if(flag == false) {
 					item.count = 1;
 					state.objGoods.push(item);
-					
+					state.num.push(item.count);
 				}	
 					
 					
@@ -63,7 +65,33 @@ const store =new Vuex.Store({
 			console.log(state.objGoods);
 			console.log(state.count)
 			 
+		},
+		JIAN(state,item){
+			state.objGoods.map(function(newitem,i){
+
+				if(newitem.data.name == item.data.name){
+					
+					if(newitem.count == 1) {
+						state.objGoods.splice(i, 1);
+					} else {
+						item.count--;
+						
+					}
+					// item.count--;
+
+					
+				}
+			})
+		},
+		ADD_PRICE(state,item){	
+			console.log('aaa');		
+			state.money += item.data.promotionPrice;			
+		},
+		REDUCE_PRICE(state, item){
+			state.money -= item.data.promotionPrice;
+			console.log(state.money)
 		}
+		
 		
 	},
 	actions:{//异步操作的事件
@@ -100,7 +128,24 @@ const store =new Vuex.Store({
 		},
 		getobjGoods(state){
 			return state.objGoods;
+			// var num = 0;
+			// objGoods.map(function(item){
+			// 	if(item.flag == false) {
+			// 		num++;
+			// 	}
+			// });
+			// if(num == 0) {
+			// 	allPrice.flag = true;
+			// }
+			// if(num == objGoods.length) {
+			// 	choice.flag = false;
+			// } else {
+			// 	allPrice.flag = false;
+			// }
+		},
 
+		getMoney(state){
+			return '总价格为：'+state.money+'元';
 		}
 	}
 })
@@ -108,7 +153,7 @@ const store =new Vuex.Store({
 new Vue({
   el: '#app',
   template: '<App/>',
-  components: { App, HomeXian },
+  components: { App },
   router,store
 })
 

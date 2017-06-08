@@ -6,7 +6,6 @@ import VueAwesomeSwiper from 'vue-awesome-swiper'
 //其中的工具提供为全局
 Vue.use(VueRouter)
 Vue.use(VueAwesomeSwiper)
-
 //引入组件
 import Home from '../home/home'
 import Good from '../home/good'

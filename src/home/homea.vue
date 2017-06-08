@@ -112,6 +112,8 @@
 			},
 			addGoods(item){
 				this.$store.commit('ADD_GOODS',item);
+				//点击添加商品的同时将价格加在money上
+				this.$store.commit('ADD_PRICE',item);
 			}
 		},
 		created(){  //组件创建完成即可发起网络请求

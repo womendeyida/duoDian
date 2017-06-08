@@ -132,7 +132,6 @@
 			})
 
 
-
 		},
 		computed: {
 			aa() {  //添加方法
@@ -202,6 +201,7 @@
 	}
 	.homeaBlockLi a{
 		color: #888888;
+		text-align: center;
 	}
 	/*-------------------精选推荐--------------*/
 	.jingxuan{

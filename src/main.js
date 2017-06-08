@@ -20,14 +20,21 @@ Vue.config.productionTip = false
 const store =new Vuex.Store({
 	state:{//共享的数据
 		obj:{},
+		obj1:{},
 		objGoods:[],
 		// flag:false,
 		data: {}
 	},
 	mutations:{//修改数据的唯一途径
+		// 主页里面的详情页面
 		ADD_MONEY(state,item){
 			console.log("123");
 			state.obj = item;			
+		},
+		// 早市里面的详情页面
+		ADD_GOODSLIST(state,item){  
+			console.log("1789");
+			state.obj1 = item;			
 		},
 		ADD_GOODS(state,item){
 			// console.log("456");

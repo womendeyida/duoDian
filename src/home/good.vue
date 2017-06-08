@@ -11,8 +11,8 @@
 		<img src="../assets/zao3.png" alt="" class="zaoImg3">
 		<div class="goodList">
 			<ul class="goodListUl clear" >
-				<li v-for="item in datah" class="goodListLi">
-					<img :src="item.img" alt="" class="goodListImg">
+				<li v-for="item in datah" class="goodListLi" >
+					<img :src="item.img" alt="" class="goodListImg" @click="show1(item)">
 					<p>{{ item.title }}</p>
 					<p>{{ item.price }}</p>
 					<p class="jia">+</p>
@@ -33,6 +33,22 @@
 				datah:[]
 
 			}
+		},
+		methods:{
+
+			show1(item){
+				// 跳转详情页面时，同时需要传一个对象进去
+				this.$store.commit('ADD_GOODSLIST', item);
+				// 详情页面的跳转
+				this.$router.push({
+					// name: 'goodDetil2'
+					path: '/goodDetil2/'
+				})
+			},
+			// addItem(item){
+			// 	this.$store.commit("ADD_GOODS", item);
+			// }
+
 		},
 
 		created(){  //组件创建完成即可发起网络请求

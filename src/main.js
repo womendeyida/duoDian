@@ -66,25 +66,25 @@ const store =new Vuex.Store({
 			console.log(state.count)
 			 
 		},
-		ADD_GOOD(state,item){
-			// //~~~~~~方法
-			var flag = false;
-			state.objGoods.map(function(newitem){
+		// ADD_GOOD(state,item){
+		// 	// //~~~~~~方法
+		// 	var flag = false;
+		// 	state.objGoods.map(function(newitem){
 
-				if(newitem.title == item.title ){
-					flag = true;
-					newitem.count++;
+		// 		if(newitem.title == item.title ){
+		// 			flag = true;
+		// 			newitem.count++;
 					
-					console.log(state.count);
-				}
-			});
-			// if(state.flag == false){//如果不存在	
-				if(flag == false) {
-					item.count = 1;
-					state.objGoods.push(item);
+		// 			console.log(state.count);
+		// 		}
+		// 	});
+		// 	// if(state.flag == false){//如果不存在	
+		// 		if(flag == false) {
+		// 			item.count = 1;
+		// 			state.objGoods.push(item);
 					
-				}	
-		}, 
+		// 		}	
+		// }, 
 		JIAN(state,item){
 			state.objGoods.map(function(newitem,i){
 

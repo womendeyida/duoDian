@@ -14,24 +14,25 @@
 		<div class="car">
 			<div class="goodList" v-for="item in allGoods">
 
-				<img :src="item.imageUrl">
-				<p>{{ item.title }}</p>
-				<p>{{ item.count }}</p>
-			</div>
-		</div>
-		<div class="bai">
-
 				<div class="dui">
 					1
 				</div>
-				<img :src="item.imageUrl">
+					<img :src="item.imageUrl">
 				<div>
 					<p>{{ item.data.name }}</p>
 					
 					<p class="abc"><span @click="reduce(item)">-</span>{{ item.count }}<span>+</span></p>
 
 				</div>
-			</div>
+
+
+			</div>	
+			
+		</div>
+		
+
+		
+	
 		
 		<div class="allPrice">
 			<div class="left">

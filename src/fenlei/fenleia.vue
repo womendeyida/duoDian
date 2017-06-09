@@ -33,7 +33,7 @@
 		},
 		methods:{
 			addGoods(item){
-			this.$store.commit('ADD_GOOD',item);
+			// this.$store.commit('ADD_GOOD',item);
 		},
 			tiao(item){
 			this.$store.commit('ADD_MONEY',item);

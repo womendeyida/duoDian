@@ -75,6 +75,16 @@
 	.homeDiv div:first-of-type{
 		margin-right: 0.75rem;
 	}
+	.homeDiv div:first-of-type a.router-link-active{
+		color: #ff8143;
+		border-bottom: 2px solid #ff8143;
+		padding-bottom: 0.25rem;
+	}
+	.homeDiv div:nth-of-type(2) a.router-link-active{
+		color: #ff8143;
+		border-bottom: 2px solid #ff8143;
+		padding-bottom: 0.25rem;
+	}
 	.homeImg1, .homeImg2{
 		width: 1.225rem;
 		height: 0.3rem;

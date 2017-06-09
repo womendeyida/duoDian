@@ -1,18 +1,18 @@
 <template>
 
-	<div id="goodDetil">
+	<div id="goodDetil2">
+		<!-- <h2>goodDetil2</h2> -->
 		<p class="goodHeader">
 			<img src="../assets/zao1.jpg" alt="" onclick="history.back()">
 			<span>早市</span>
-			<img src="../assets/11.jpg" alt="" @click='tiao()'>
+			<img src="../assets/11.jpg" alt="" @click="tiao()">
 		</p>
 		<div>
-			<h1>{{ id }}</h1>
-			<img :src="goodDetil.imageUrl" >
-			<p>{{ goodDetil.data.name }}</p>
-			<!-- <img :src="goodDetil.img" alt="">
-			<p>{{goodDetil.title}}</p> -->
-
+			<!-- <h1>{{ id }}</h1> -->
+			
+			<img :src="goodDetil2.img" alt="">
+			<p>{{goodDetil2.title}}</p>
+			<!-- <p>{{goodDetil}}</p> -->
 
 		</div>
 	</div>
@@ -22,31 +22,32 @@
 <script>
 
 	export default{
-		name:"allList",	
+		name:"allListaaa",
 		data() {
 	        return { // 在数据中接收
-	            // id: this.$route.params.id
+	            id: this.$route.params.id
 	        }
 	    },
-	    methods:{
-	    	tiao(){
-	    		this.$router.push({
-	    			path:'/home/'
-	    		})
-	    	}
-	    	
-	    },
 		computed:{
-			goodDetil(){
-				console.log(this.$store.getters.getobj)			
-				return this.$store.getters.getobj
+			goodDetil2(){
+				// console.log(this.$store.getters.getobj)			
+				return this.$store.state.obj1
+				// console.log(this.$store.obj)
+				// return this.$store.obj
 			}
 		},
-		created(){
-			// this.axios.get('https://waredetailgateway.dmall.com/detail/main?id=' + this.id).then()
-			// console.log(this.$route.params.id)
-
+		methods:{
+			tiao(){  //点击主页的图标，可以让页面跳转到主页
+				this.$router.push({
+					path:'/home/'
+				})
+			}
 		}
+		// created(){
+		// 	// this.axios.get('https://waredetailgateway.dmall.com/detail/main?id=' + this.id).then()
+		// 	// console.log(this.$route.params.id)
+
+		// }
 	}
 
 </script>
@@ -55,10 +56,10 @@
 	#allList h1{
 		color:blue;
 	}
-	#goodDetil{
+	#goodDetil2{
 		background-color: #fff;
 	}
-	#goodDetil .goodHeader{
+	#goodDetil2 .goodHeader{
 		display: flex;
 		justify-content: space-around;
 		align-items: center;

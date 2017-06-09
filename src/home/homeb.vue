@@ -57,8 +57,8 @@
 				<figcaption>
 					<span>{{ item.data.promotionDisplayLable }}</span>
 					<p>{{ item.data.name }}</p>
-					<del>￥{{ item.data.price}}</del>
-					<p class="newprice">￥{{ item.data.promotionPrice }}</p>
+					<del>￥{{ item.data.price/100}}</del>
+					<p class="newprice">￥{{ item.data.promotionPrice/100 }}</p>
 					<div class="jia" @click='addGoods(item)'>+</div>
 				</figcaption>
 			</figure>
@@ -105,6 +105,7 @@
 			rotate(item) {
 				// console.log(item);
 				this.$store.commit('ADD_MONEY',item);
+				
 			    // 在方法中进行路由跳转，并传递参数
 			    // this.$router.push('/listdetail/' + item.name)
 			    
@@ -120,6 +121,8 @@
 			},
 			addGoods(item){
 				this.$store.commit('ADD_GOODS',item);
+				//点击添加商品的同时将价格加在money上
+				this.$store.commit('ADD_PRICE',item);
 			}
 		},
 		created(){

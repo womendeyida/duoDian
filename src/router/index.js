@@ -6,7 +6,6 @@ import VueAwesomeSwiper from 'vue-awesome-swiper'
 //其中的工具提供为全局
 Vue.use(VueRouter)
 Vue.use(VueAwesomeSwiper)
-
 //引入组件
 import Home from '../home/home'
 import Good from '../home/good'
@@ -21,8 +20,12 @@ import Mine from '../mine/mine'
 import AllList from '../mine/allList'
 import Vip from '../vip/vip'
 import GoodDetil from '../components/goodDetil'
+
 import Huiyuan from '../components/huiyuan'
 import GoodDetill from '../components/goodDetail1'
+
+import GoodDetil2 from '../components/goodDetil2'
+
 //定义路由规则
 const routes = [
 	{path:'', component:Home,children:[
@@ -46,7 +49,10 @@ const routes = [
 	{path:'/cart',name:"cart",component:Cart},
 	{path:'/goodDetil', name: "goodDetil",component:GoodDetil},
 	{path:'/huiyuan',name:"huiyuan",component:Huiyuan},
-	{path:'/goodDetail1',name:"goodDetail1",component:GoodDetill}
+	{path:'/goodDetail1',name:"goodDetail1",component:GoodDetill},
+	{path:'/goodDetil', name: "goodDetil",component:GoodDetil},
+	{path:'/goodDetil2', name: "goodDetil2",component:GoodDetil2}
+
 ]
 
 // //创建路由对1象

@@ -18,7 +18,7 @@ export default{
 		},
 		tiao(){
 			 this.$router.push({
-			 	name:'cart'
+			 	path:"/cart"
 			 })
 		}
 	}

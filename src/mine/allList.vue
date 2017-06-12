@@ -2,7 +2,7 @@
 
 	<div id="allList">
 		<div class="header">
-			<div><img src="../assets/zao1.jpg" alt=""></div>
+			<div onclick="history.back()"><img src="../assets/zao1.jpg" alt=""></div>
 			<span>全部订单</span>			
 		</div>
 		<div class="list">

@@ -5,8 +5,8 @@
 			<p></p>
 		</div> 
 		<span @click='total()'>全部分类</span>
-		<router-link to="/fenlei/fenleia">多点超市</router-link>
-		<router-link to="/fenlei/fenleib">全球精选</router-link>
+		<router-link to="/fenlei/fenleia">国产水果</router-link>
+		<router-link to="/fenlei/fenleib">进口水果</router-link>
 		<div class="tiao">
 			<p>79元免运费/59元-79元仅2元运费</p>
 		</div>

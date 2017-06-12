@@ -9,19 +9,21 @@
 		<div class="address">
 			<p>多点君需要你的详细地址呦~</p>
 			<p>送至(物美大卖场西三旗店)</p>
-			
+			<div :class="allChoiceFlag? 'quan':'quanNo'" @click="all()">
+				a
+			</div>
 		</div>
 		<div class="car">
 			<div class="goodList" v-for="item in allGoods">
 
-				<div class="dui">
+				<div :class="item.singleFlag ? 'dui' : 'cuo'" @click="singleChoice(item)">
 					1
 				</div>
 					<img :src="item.imageUrl">
 				<div>
 					<p>{{ item.data.name }}</p>
 					
-					<p class="abc"><span @click="reduce(item)">-</span>{{ item.count }}<span>+</span></p>
+					<p class="abc"><span @click="reduce(item)">-</span>{{ item.count }}<span @click = 'add(item)'>+</span></p>
 
 				</div>
 
@@ -35,6 +37,7 @@
 	
 		
 		<div class="allPrice">
+			
 			<div class="left">
 				<p>{{ allPrice }}</p>
 			</div>
@@ -51,7 +54,7 @@
 		name:"cart",
 		data(){
 			return{
-				
+				bian:true
 			}
 		},
 		methods:{
@@ -59,11 +62,47 @@
 				
 				this.$store.commit("JIAN",item);
 				console.log(item);
+				this.$store.commit("CHANGE");
+			},
+			add(item){
+				this.$store.commit("JIA",item);
+				this.$store.commit("CHANGE");
+			},
+			singleChoice(item) {
+				console.log("bbbb")
+				// this.$store.commit("BIAN",item);
+				item.singleFlag = !item.singleFlag;			
+				let num = 0;
+				this.allGoods.map(function(i) {
+					if(i.singleFlag == false) {
+						num++;
+					}
+				});
+				if(num == 0) {
+					this.allChoiceFlag = true;
+				} else {
+					this.allChoiceFlag = false;
+				}
+				this.$store.commit("CHANGE");
+			},
+			all() {
+				this.allChoiceFlag = !this.allChoiceFlag;
+				if(this.allChoiceFlag == false) {
+					this.allGoods.map(function(i) {
+						i.singleFlag = false;
+					})
+				}
+				if(this.allChoiceFlag == true) {
+					this.allGoods.map(function(i) {
+						i.singleFlag = true;
+					})
+				}
+				this.$store.commit("CHANGE");
 			}
 		},
 		computed:{
 			allGoods(){			
-				return this.$store.getters.getobjGoods;
+				return this.$store.state.objGoods;
 			},
 			allPrice(){
 				return this.$store.getters.getMoney;
@@ -180,5 +219,28 @@
 		text-align: center;
 		line-height: 0.5rem;
 
+	}
+	#cart .car .cuo {
+		width: 0.5rem;
+		height:0.5rem;
+		margin-top: 1rem;
+		float: left;
+		background: blue;
+		border: 1px solid red;
+		border-radius: 50%;
+		text-align: center;
+		line-height: 0.5rem;
+	}
+	#cart .quan{
+		height: 20px;
+		width: 20px;
+		background: white;
+		border-radius: 50%;
+	}
+	#cart .quanNo{
+		height: 20px;
+		width: 20px;
+		background: gray;
+		border-radius: 50%;
 	}
 </style>

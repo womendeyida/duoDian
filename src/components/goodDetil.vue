@@ -7,7 +7,7 @@
 			<img src="../assets/11.jpg" alt="" @click='tiao()'>
 		</p>
 		<div>
-			<h1>{{ id }}</h1>
+			
 			<img :src="goodDetil.imageUrl" >
 			<p>{{ goodDetil.data.name }}</p>
 			<!-- <img :src="goodDetil.img" alt="">

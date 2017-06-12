@@ -16,6 +16,8 @@ import axios from 'axios'
 Vue.prototype.axios = axios
 Vue.config.productionTip = false
 
+Vue.prototype.allChoiceFlag = true;
+
 //创建仓库(store)为了存放state mutations,actions
 const store =new Vuex.Store({
 	state:{//共享的数据
@@ -55,7 +57,9 @@ const store =new Vuex.Store({
 			});
 			// if(state.flag == false){//如果不存在	
 				if(flag == false) {
-					item.count = 1;
+					
+					Vue.set(item,'count',1);
+					Vue.set(item,'singleFlag',true);
 					state.objGoods.push(item);
 					state.num.push(item.count);
 				}	
@@ -65,6 +69,11 @@ const store =new Vuex.Store({
 			console.log(state.objGoods);
 			console.log(state.count)
 			 
+		},
+		BIAN(item){
+			console.log("oooo")
+			item.singleFlag = !item.singleFlag;
+			console.log(item.singleFlag)
 		},
 		// ADD_GOOD(state,item){
 		// 	// //~~~~~~方法
@@ -93,6 +102,7 @@ const store =new Vuex.Store({
 					if(newitem.count == 1) {
 						state.objGoods.splice(i, 1);
 					} else {
+						
 						item.count--;
 						
 					}
@@ -102,14 +112,34 @@ const store =new Vuex.Store({
 				}
 			})
 		},
-		ADD_PRICE(state,item){	
-			console.log('aaa');		
-			state.money += item.data.promotionPrice;			
+		JIA(state,item){
+			item.count++;
 		},
-		REDUCE_PRICE(state, item){
-			state.money -= item.data.promotionPrice;
-			console.log(state.money)
+		// REDUCE_PRICE(state){	
+		// 	console.log('aaa');	
+		// 	const a = 0;
+		// 	state.objGoods.map(function(newitem){
+		// 		a += newitem.count*newitem.data.promotionPrice;
+		// 	});			
+		// },
+		ADD_PRICE(state,item){	
+			console.log('aaa');	
+			
+			state.money += item.data.promotionPrice;
+					
+		},
+		CHANGE(state){
+			var a = 0;
+			state.objGoods.map(function(newitem){
+				if(newitem.singleFlag == true){
+					a += newitem.count*newitem.data.promotionPrice;
+				}
+				// a += newitem.count*newitem.data.promotionPrice;
+		 	});
+		 	state.money = a;	
+
 		}
+		
 		
 		
 	},

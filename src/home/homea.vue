@@ -66,6 +66,17 @@
 				</li>
 			</ul>
 		</div>
+		<div>
+			<!-- <div v-for="p in cc">
+				<p>{{p}}</p>
+				
+			</div> -->
+			<ul>
+				<li>
+					
+				</li>
+			</ul>
+		</div>
 		<div class="kong"></div>
 	</div>
 
@@ -80,6 +91,7 @@
 		// components:{ swiper, swiperSlide },
 		data(){
 			return{
+				datazong:[],
 				data:[], 
 				datah:[],   //好货提前抢的数据
 				dataj:[],   //精选
@@ -121,6 +133,9 @@
 				// console.log(res.data.data.pageModules[0].dataList)
 				// console.log(res.data.data.pageModules[2].dataList)
 				// console.log(res.data.data.pageModules[9].dataList)
+				// console.log(res.data.data.pageModules)
+				// this.datazong = res.data.data.pageModules
+				// console.log(datazong)
 				this.data = res.data.data.pageModules[0].dataList
 				this.datah = res.data.data.pageModules[2].dataList
 				this.dataj = res.data.data.pageModules[3].dataList
@@ -135,11 +150,26 @@
 
 
 		},
-		computed: {
+		computed: { //计算属性
 			aa() {  //添加方法
 				this.datah.splice(5, 1);
 				return this.datah;
-			},
+			}
+			// cc() {
+			// 	let arr = [];
+			// 	if(datazong){
+			// 		for(var i = 8; i<datazong.length; i+=2){
+			// 			// push进一个对象
+			// 			arr.push({
+			// 				key: datazong[i],
+			// 				value: datazong[i]+1
+			// 			});
+			// 		}
+					
+			// 	}
+			// return arr
+
+			// }
 
 		},
 		// filters:{  //过滤器

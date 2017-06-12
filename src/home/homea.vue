@@ -99,6 +99,7 @@
 		},
 		methods:{
 			store(item){
+				//将对象添加到详情
 				this.$store.commit('ADD_MONEY',item);
 
 				
@@ -111,6 +112,7 @@
 				})
 			},
 			addGoods(item){
+				//将商品添加到购物车
 				this.$store.commit('ADD_GOODS',item);
 				//点击添加商品的同时将价格加在money上
 				this.$store.commit('ADD_PRICE',item);

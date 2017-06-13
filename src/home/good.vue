@@ -1,5 +1,4 @@
 <template>
-
 	<div id="good">
 		<p class="goodHeader">
 			<img src="../assets/zao1.jpg" alt="" onclick="history.back()">

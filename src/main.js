@@ -27,19 +27,20 @@ const store =new Vuex.Store({
 		// flag:false,
 		data: {},
 		money:0,
-		num: []
+		
 	},
 	mutations:{//修改数据的唯一途径
 		// 主页里面的详情页面
 		ADD_MONEY(state,item){
-			console.log("123");
+			// console.log("123");
 			state.obj = item;			
 		},
 		// 早市里面的详情页面
 		ADD_GOODSLIST(state,item){  
-			console.log("1789");
+			// console.log("1789");
 			state.obj1 = item;			
 		},
+		//往购物车里面添加商品
 		ADD_GOODS(state,item){
 			// console.log("456");
 			// state.objGoods.push(item);
@@ -51,49 +52,34 @@ const store =new Vuex.Store({
 				if(newitem.data.name == item.data.name ){
 					flag = true;
 					newitem.count++;
-					console.log(state.count);
+					// console.log(state.count);
 					
 				}
 			});
 			// if(state.flag == false){//如果不存在	
 				if(flag == false) {
-					
+					//item.count = 1;
+					//上面的方法不能让购物车里面的count值改变，
+					//但是对象的这个count属性确实变了，只是页面不变而已，
+					//这是因为给对象添加属性的时候，对象是没有set和get方法的
+					//所以得用Vue.set这个方法
 					Vue.set(item,'count',1);
+					//除了Vue.set这个方法外也可以用this.$vue()这个方法，
+					//但是在这里不好使，因为这里的this不是指全局。
+					//在局部里面可以用。
 					Vue.set(item,'singleFlag',true);
 					state.objGoods.push(item);
-					state.num.push(item.count);
+					
 				}	
 					 
 					
 			// };
 			console.log(state.objGoods);
-			console.log(state.count)
+			// console.log(state.count)
 			 
 		},
-		BIAN(item){
-			console.log("oooo")
-			item.singleFlag = !item.singleFlag;
-			console.log(item.singleFlag)
-		},
-		// ADD_GOOD(state,item){
-		// 	// //~~~~~~方法
-		// 	var flag = false;
-		// 	state.objGoods.map(function(newitem){
-
-		// 		if(newitem.title == item.title ){
-		// 			flag = true;
-		// 			newitem.count++;
-					
-		// 			console.log(state.count);
-		// 		}
-		// 	});
-		// 	// if(state.flag == false){//如果不存在	
-		// 		if(flag == false) {
-		// 			item.count = 1;
-		// 			state.objGoods.push(item);
-					
-		// 		}	
-		// }, 
+		//点击购物车里面的减号的时候让item的count属性减一，
+		//当为1的时候再点击就从数组中删除
 		JIAN(state,item){
 			state.objGoods.map(function(newitem,i){
 
@@ -112,6 +98,7 @@ const store =new Vuex.Store({
 				}
 			})
 		},
+		//当点击加号的时候只需让item的count属性加一就行了
 		JIA(state,item){
 			item.count++;
 		},
@@ -122,15 +109,25 @@ const store =new Vuex.Store({
 		// 		a += newitem.count*newitem.data.promotionPrice;
 		// 	});			
 		// },
+		 
+		//每当点击添加商品的加号的时候都会去执行这个方法，将商品的价格
+		//加到一起
 		ADD_PRICE(state,item){	
 			console.log('aaa');	
 			
 			state.money += item.data.promotionPrice;
 					
 		},
+
+		//每当点击加号、减号、全选、单选等按钮的时候都会去调用的方法，
+		//重新计算总价格
 		CHANGE(state){
 			var a = 0;
 			state.objGoods.map(function(newitem){
+				//这里的判断一下，如果某个商品被取消了，
+				//也就是前面的选中状态未选中的话则不去
+				//计算未选中的那些商品的价格，也就是只计算singleFlag为
+				//true的商品。
 				if(newitem.singleFlag == true){
 					a += newitem.count*newitem.data.promotionPrice;
 				}

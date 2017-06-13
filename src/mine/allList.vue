@@ -38,7 +38,14 @@
 					{name:"已取消"}
 				]
 			}
-		}
+		},
+		// computed(){
+		// 	goods(){
+
+		// 		return this.$store.state.objGoods;
+			
+		// 	}
+		// }
 		
 
 		

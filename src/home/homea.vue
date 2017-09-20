@@ -67,6 +67,17 @@
 				</li>
 			</ul>
 		</div>
+		<div>
+			<!-- <div v-for="p in cc">
+				<p>{{p}}</p>
+				
+			</div> -->
+			<ul>
+				<li>
+					
+				</li>
+			</ul>
+		</div>
 		<div class="kong"></div>
 	</div>
 
@@ -82,7 +93,12 @@
 		components:{ Hao },
 		data(){
 			return{
+<<<<<<< HEAD
         data:[],
+=======
+				datazong:[],
+				data:[], 
+>>>>>>> d5e9735c6fdbcc65be096072adf8dc0b322f1cce
 				datah:[],   //好货提前抢的数据
 				dataj:[],   //精选
 				datas:[],   //生鲜
@@ -125,6 +141,9 @@
 				// console.log(res.data.data.pageModules[0].dataList)
 				// console.log(res.data.data.pageModules[2].dataList)
 				// console.log(res.data.data.pageModules[9].dataList)
+				// console.log(res.data.data.pageModules)
+				// this.datazong = res.data.data.pageModules
+				// console.log(datazong)
 				this.data = res.data.data.pageModules[0].dataList
 				this.datah = res.data.data.pageModules[2].dataList
 				console.log(this.datah)
@@ -140,6 +159,7 @@
 
 
 		},
+<<<<<<< HEAD
 		computed: {
 			// aa() {  //添加方法
 			// 	this.datah.splice(5, 1);
@@ -148,6 +168,28 @@
 			// return aa.filters(function(item){
 			// 	return item.age >= 18;
 			// })
+=======
+		computed: { //计算属性
+			aa() {  //添加方法
+				this.datah.splice(5, 1);
+				return this.datah;
+			}
+			// cc() {
+			// 	let arr = [];
+			// 	if(datazong){
+			// 		for(var i = 8; i<datazong.length; i+=2){
+			// 			// push进一个对象
+			// 			arr.push({
+			// 				key: datazong[i],
+			// 				value: datazong[i]+1
+			// 			});
+			// 		}
+					
+			// 	}
+			// return arr
+
+			// }
+>>>>>>> d5e9735c6fdbcc65be096072adf8dc0b322f1cce
 
 		},
 		// filters:{  //过滤器

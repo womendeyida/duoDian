@@ -8,8 +8,10 @@
 		</p>
 		<img :src="data.imgSrc" alt="" class="home_xian_img1">
 		<div class="homeJing">
-			<div v-for="item in datajing" >
+		<!-- ~~~~~~~~~~~~~~~~~~~~惊爆品四个图片~~~~~~~~~~~~~~~~~ -->
+			<div v-for="(item, i) in datajing" @click="showClass(i)" :class="{ orange:currentIndex == i }">
 				<a :href="item.anchor">{{ item.text }}</a>
+				<!-- <p>{{item.text}}</p> -->
 			</div>
 			<p><img src="../assets/arror.png" alt=""></p>
 		</div>
@@ -37,7 +39,14 @@
 				data:[],
 				datajing:[],
 				datajingf:[],
-				dataflist:[]
+				dataflist:[],
+				
+				currentIndex:0
+			}
+		},
+		methods:{
+			showClass(i){
+				this.currentIndex = i;
 			}
 		},
 		created(){
@@ -106,7 +115,7 @@
 	.homeJing>div{
 		text-align: center;
 	}
-	.homeJing>div:first-of-type{
+	.orange{
 		width: 2.0rem;
 		height: 0.625rem;
 		background-color: #F46C18;

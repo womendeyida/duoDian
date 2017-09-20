@@ -153,6 +153,9 @@
 </script>
 
 <style>
+	#homeb{
+		background-color: #fff;
+	}
 	#homeb h1{
 		color:blue;
 	}

@@ -27,11 +27,14 @@ import GoodDetill from '../components/goodDetail1'
 import GoodDetil2 from '../components/goodDetil2'
 
 //定义路由规则
+//重定向问题：路由 redirect:'home'
+
 const routes = [
-	{path:'', component:Home,children:[
-		{path:'',component:Homea}]},
+	{path:'', redirect:'/home/homea' },
+	// {path:'', component:Home,children:[
+	// 	{path:'',component:Homea}]},
 	{path:'/home', component:Home,children:[
-		{path:'',component:Homea},
+		{path:'',redirect:'/home/homea'},
 		{path:'homea',component:Homea},
 		{path:'homeb',component:Homeb}
 	]},

@@ -86,6 +86,7 @@ const store =new Vuex.Store({
 				if(newitem.data.name == item.data.name){
 					
 					if(newitem.count == 1) {
+						
 						state.objGoods.splice(i, 1);
 					} else {
 						
@@ -142,14 +143,14 @@ const store =new Vuex.Store({
 	},
 	actions:{//异步操作的事件
 		//这个context就是$store
-		addMoney(context,price){
-			console.log(context);
-			//异步更改state
-			setTimeout(function(){
+		// addMoney(context,price){
+		// 	console.log(context);
+		// 	//异步更改state
+		// 	setTimeout(function(){
 
-				context.commit("ADD_MONEY",price)
-			},1000);
-		},
+		// 		context.commit("ADD_MONEY",price)
+		// 	},1000);
+		// },
   
 		requestData(state){
 			axios.get('../../static/quanQiu.json').then((res) => {

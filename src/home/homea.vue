@@ -1,7 +1,7 @@
 <template>
 
 	<div id="homea">
-	
+
 		<!-- <router-link to="/home_xian">home_xian</router-link>
 		<router-view></router-view> -->
 		<!-- <h1>好么</h1> -->
@@ -17,15 +17,16 @@
 			</swiper>
 		</div>
 		<!-- ~~~~~~~~~~~~~~~~~~~~~好货提前抢~~~~~~~~~~~~~~~~~~~~~ -->
-		<ul class="homeaBlock">
+		<!-- <ul class="homeaBlock">
 			<li v-for="item in aa " class="homeaBlockLi">
 				<router-link to="/good">
 					<img v-bind:src="item.imageUrl" alt="" class="homeaBlockLiImg">
 					<p>{{item.data.title}}</p>
 				</router-link>
-				<router-view></router-view>	
+				<router-view></router-view>
 			</li>
-		</ul>
+		</ul> -->
+		<hao :list="datah"></hao>
 		<!-- ~~~~~~~~~~~~~~~~~~~~精选推荐~~~~~~~~~~~~~~~~~~~~ -->
 		<div v-for="p in dataj" class="jingxuan">
 			<img v-bind:src="p.imageUrl" alt="" class="jingImg">
@@ -35,7 +36,7 @@
 			<router-link to="/home_xian">
 				<img v-bind:src="p.imageUrl">
 			</router-link>
-			<router-view></router-view>	
+			<router-view></router-view>
 		</div>
 		<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~超市优选~~~~~~~~~~~~~~~~~~~~ -->
 		<div v-for="p in datai" class="chaoshi">
@@ -44,10 +45,10 @@
 		<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~鲜菜~~~~~~~~~~~~~~~~~~~~ -->
 		<div class="xiancai clear">
 			<div v-for="p in datax" >
-				<img v-bind:src="p.imageUrl" alt="">			
+				<img v-bind:src="p.imageUrl" alt="">
 			</div>
 			<div v-for="p in datal" >
-				<img v-bind:src="p.imageUrl" alt="">			
+				<img v-bind:src="p.imageUrl" alt="">
 			</div>
 		</div>
 		<!-- ~~~~~~~~~~~~~~~~~~~~~~~~健康蔬菜~~~~~~~~~~~~~~~~~~~~~~ -->
@@ -73,14 +74,15 @@
 
 <script>
 	// 引入轮播图组件
-	// import { swiper, swiperSlide } from 'vue-awesome-swiper'
+	import Hao from './hao.vue'
 	export default{
 		name:"homea",
+		props:["items"],
 		// 注册轮播图组件
-		// components:{ swiper, swiperSlide },
+		components:{ Hao },
 		data(){
 			return{
-				data:[], 
+        data:[],
 				datah:[],   //好货提前抢的数据
 				dataj:[],   //精选
 				datas:[],   //生鲜
@@ -102,12 +104,12 @@
 				//将对象添加到详情
 				this.$store.commit('ADD_MONEY',item);
 
-				
+
 				this.$router.push({
 					//路由的名字
 					name:'goodDetil',
 					path:{
-						
+
 					}
 				})
 			},
@@ -125,6 +127,7 @@
 				// console.log(res.data.data.pageModules[9].dataList)
 				this.data = res.data.data.pageModules[0].dataList
 				this.datah = res.data.data.pageModules[2].dataList
+				console.log(this.datah)
 				this.dataj = res.data.data.pageModules[3].dataList
 				this.datas = res.data.data.pageModules[4].dataList
 				this.datai = res.data.data.pageModules[5].dataList
@@ -138,10 +141,13 @@
 
 		},
 		computed: {
-			aa() {  //添加方法
-				this.datah.splice(5, 1);
-				return this.datah;
-			},
+			// aa() {  //添加方法
+			// 	this.datah.splice(5, 1);
+			// 	return this.datah;
+			// }
+			// return aa.filters(function(item){
+			// 	return item.age >= 18;
+			// })
 
 		},
 		// filters:{  //过滤器
@@ -155,7 +161,7 @@
 		// 		return arr;
 		// 	}
 		// }
-		
+
 	}
 
 </script>
@@ -163,50 +169,23 @@
 <style scoped>
 	#homea{
 		background: #F6F6F6;
-		
+
 	}
 	#homea h1{
 		color:blue;
 	}
 	.homeaLunbo{
 		width: 100%;
-		height: 3.75rem; 
+		height: 3.75rem;
 		/*background: yellow;*/
 	}
 	.homeaLunbo img{
 		width: 100%;
-		height: 3.75rem; 
+		height: 3.75rem;
 	}
 
 	/*---------------好货提前抢-------------*/
-	.homeaBlock{
-		width:100%;
-	    height: 1.85rem;
-	    background: #fff;
-	    display: flex;
-	    justify-content:space-around;
-	    align-items:center;
-	    margin:10px 0;
 
-	}
-	.homeaBlockLi{
-		width: 1.875rem;
-		height: 1.85rem;
-
-	}
-	.homeaBlockLiImg{
-		width: 1.875rem;
-		height:1.25rem; 
-	}
-	.homeaBlockLi>p{
-		color: #ccc;
-		text-align: center;
-
-	}
-	.homeaBlockLi a{
-		color: #888888;
-		text-align: center;
-	}
 	/*-------------------精选推荐--------------*/
 	.jingxuan{
 		width: 100%;
@@ -257,7 +236,7 @@
 		justify-content:space-around;
 		align-items:center;
 		flex-wrap:wrap;
-		
+
 	}
 	.jiankangUl>li{
 		/*float: left;*/
@@ -299,7 +278,7 @@
 		bottom:0.825rem;
 		right: 0.5rem;
 	}
-	
+
 	.kong{
 		width: 100%;
 		height: 1.25rem;

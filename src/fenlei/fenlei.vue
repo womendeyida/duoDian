@@ -1,48 +1,7 @@
 <template> 
 
 	<div id="fenlei">
-		<div class="header">
-			<p></p>
-		</div> 
-		<span @click='total()'>全部分类</span>
-		<router-link to="/fenlei/fenleia">国产水果</router-link>
-		<router-link to="/fenlei/fenleib">进口水果</router-link>
-		<div class="tiao">
-			<p>79元免运费/59元-79元仅2元运费</p>
-		</div>
-		<router-view></router-view>
-
-		<div class="totalList" ref="totalList1">
-
-			<div class="tou">
-				<span>全部分类</span>
-				<span @click='xiaoshi()'>取消</span>
-			</div>
-			<div class="xiabian">
-				<div class="left">
-					<ul>
-						<li v-for="(item,i) in list" @click="dianji(i)" :class="{active:currentIndex == i}"> 
-							<span>{{item.catName}}</span>
-						</li>
-					</ul>
-				</div>
-				<div class="middle">
-					<ul>
-						<li v-for="(item, i) in aa" @click="erDian(item,i)" :class="{active1:currentIndex1 == i}">
-						{{ item.catName }}
-
-						</li>
-					</ul>
-				</div>
-				<div class="right">
-					<ul>
-						<li v-for="(item, i) in bb" :class="{active2:currentIndex2 == i}" @click="sandian(i)">{{ item.catName }} </li>
-					</ul>
-				</div>
-			</div>
-			
-		</div>
-		<div class="zhezhao" ref="zhezhao1"></div>
+	
 		
 	</div>
 
@@ -83,9 +42,9 @@
 					this.$refs.totalList1.style.bottom= i + 'px';
 					i-=10;
 					if (i==-600){
-					clearInterval(chuxian);
+							clearInterval(chuxian);
 					}
-					},1);
+				},1);
 				this.$refs.zhezhao1.style.display='none';
 			},
 			dianji(i){

@@ -21,7 +21,7 @@
 
 		<div class="car" v-if="allGoods.length > 0">
 			<div class="car_quan">
-				<p><span :class="allChoiceFlag? 'quan':'quanNo'" @click="all()">
+				<p><span :class="allChoiceFlag ? 'quan':'quanNo'" @click="all()">
 				</span>多点超市</p>
 			</div>
 			<div class="goodList" v-for="item in allGoods">
